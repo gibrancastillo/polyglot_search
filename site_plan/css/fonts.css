@@ -2,7 +2,7 @@
 /*  font-family: Abel  */
 @font-face {
     font-family: Abel;
-    src: url('../fonts/Abel/Abel-Regular.ttf');
+    src: url('../fonts/Abel/Abel-Regular.ttf') format("truetype");
 }
 
 /*  font-family: Anton  */
