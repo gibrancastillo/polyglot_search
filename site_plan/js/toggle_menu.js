@@ -1,5 +1,7 @@
-function toggleMenu() {
-    document.querySelector("#navigation").classList.toggle("open");
-}
+const hambutton = document.querySelector('.ham');
+const mainnav = document.querySelector('.navigation')
 
-document.querySelector("#hamburger-btn").onclick = toggleMenu;
+hambutton.addEventListener('click', () => {mainnav.classList.toggle('responsive')}, false);
+
+// To solve the mid resizing issue with responsive class on
+window.onresize = () => {if (window.innerWidth > 760) mainnav.classList.remove('responsive')};
