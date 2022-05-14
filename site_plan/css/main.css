@@ -1,4 +1,5 @@
 @import url('../css/fonts.css');
+
 /*Header CSS*/
 header { 
     width: 100%;
@@ -49,6 +50,60 @@ p{
     font-family: Abel;
     color: #081C15;
 }
+
+/*Navigation CSS*/
+a{
+    text-decoration: none;
+    list-style-type: none;
+}
+a:link{
+    text-decoration: none;
+}
+nav a:link, nav a:visited, nav a:hover, nav a:active{
+    color: #081C15;
+    text-decoration: none;
+}
+nav {
+	color: #081C15;
+	border: 0.5px solid #081C15;
+	margin: 0 auto;
+	max-width: 100%;
+	background-color: #92E6A7;
+}
+nav a:visited {
+	color: #081C15;
+	}
+.navigation {
+	list-style: none;
+	padding: 0;
+}
+.navigation li:first-child {
+	display: block;
+}
+.navigation li {
+	display: none;
+}
+.navigation a {
+	display: block;
+	padding: 0.75rem;
+	text-align: center;
+	text-decoration: none;
+	font-weight: 700;
+	transition: 0.5s;
+	font-size: clamp(1rem, 2vmin, 1.5rem);
+}
+
+.navigation a.ham::before {
+	content: "";
+}
+
+.navigation a:hover {
+	color: #ffffff;
+	background-color: #081C15;
+}
+
+
+
 /*Body CSS*/
 main{
     padding: 0 20%;
