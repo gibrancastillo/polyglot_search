@@ -41,28 +41,99 @@
         <!-- <button id="hamburger-btn">🛵</button> -->
         <ul class="navigation">
           <li><a class="ham" href="#">&#9776;</a></li>
-          <li><a  href="index.html">Home</a></li>
+          <li><a href="index.html">Home</a></li>
           <li><a href="palette.html">Color Scheme</a></li>
-          <li><a class="active" href="wireframe.html">Wireframe</a></li>
+          <li><a href="wireframe.html">Wireframe</a></li>
           <li><a href="typography.html">Typorgraphy</a></li>
           <li><a href="audience.html">Target Audience</a></li>
-          <li><a href="functions.html">Funtions</a></li>
+          <li><a class="active" href="functions.html">Funtions</a></li>
         </ul>
+
     </nav>
 <!-- x------------------x-----------------x NAVIGATION x------------------x------------------x -->
 
 
 <!-- ---------------------------------------- CONTENT ----------------------------------------- -->
     <main>
-      <h2>Mobile device</h2>
-      <img class="image-blur" style="width: 40%;" src="../assets/images/site/Movil wireframe.png" alt="">
-      <h2>Tablet device</h2>
-      <img class="image-blur" style="width: 60%;" src="../assets/images/site/Tablet wireframe.png" alt="">
-      <h2>Computer device</h2>
-      <img class="image-blur" src="../assets/images/site/Website wireframe.png" alt="">
+      <h1>Functions Overview</h1>
+      <table class="default">
+        <tr>
+          <th>Function</th>
+          <th>Description</th>
+        </tr>
+        <tr>
+          <td>SpeechRecognition()</td>
+          <td >
+            <h4>speech to text</h4>
+            <p class="parg-table">This function aims to create a connection to the user's voice by storing it in a constant using the following sample object:</p>
+            <p class="parg-table">constSpeechRecognition = window.SpeechRecognition|| window.webkitSpeechRecognition;</p>
+            <p class="parg-table">constrecognition =new SpeechRecognition();</p>
+            <p class="parg-table">recognition.start();</p>
+            
+          </td>
+        </tr>
+        <tr>
+            <td>convertToJson(res) </td>
+            <td >
+              <h4>async function</h4>
+              <p class="parg-table">create an await variable res.json(); with the aim of converting it into data and 
+                if not, show the error that occurs.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>prepareTemplate()</td>
+            <td >
+              <h4></h4>
+              <p class="parg-table">This function implements the template to display details about 
+                the search performed, movie name, release details, year, and a short summary if it exists, 
+                among others.</p>
 
-      <!-- Pending!! -->
+            </td>
+          </tr>
+          <tr>
+            <td>addList()</td>
+            <td >
+              <h4>Add to list</h4>
+              <p class="parg-table">This function adds the movie or movies that match the search made.</p>
+              <p class="parg-table"><strong></strong></p>
+              <p class="parg-table"><strong></strong></p>
+              <p class="parg-table"><strong></strong></p>
+              <p class="parg-table"><strong></strong></p>
+            </td>
+          </tr>
+          <tr>
+            <td>findMatches</td>
+            <td >
+              <h4>Find Matches</h4>
+              <p class="parg-table">This function takes the search word and sends it to the search match 
+                function to evaluate the movie match.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>searchRelationship()</td>
+            <td >
+              <h4>Search Relationship</h4>
+              <p class="parg-table">This function takes the word the user entered and evaluates it against
+                 possible movie matches, if none are found it returns no matches found.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>animationFunction()</td>
+            <td >
+              <h4>Animation Function</h4>
+              <p class="parg-table">This function provides the animation for many parts of our code, logo, and when our site searches for information about movies.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>MovieDetails()</td>
+            <td >
+              <h4>Movie Details Class</h4>
+              <p class="parg-table">This class provides all the details about your movie and uses many features to make this work,</p>
+            </td>
+          </tr>
+      </table>
       <hr>
+      
     </main>
 <!-- x-----------------x--------------------x CONTENT x------------------x--------------------x -->
     
