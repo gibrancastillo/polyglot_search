@@ -3,74 +3,71 @@
   <ul class="navigation responsive">
 */
 .responsive li {
-	display: block;
+  display: block;
 }
 
 .responsive a.ham::before {
-	content: "❌";
+  content: "❌";
 }
-.active{
-	border: 0.5px solid #081C15;
-	background-color: #B7EFC5;
-	box-shadow: rgba(5, 209, 15, 0.4) 0px 5px;
+.active {
+  border: 0.5px solid #081c15;
+  background-color: #b7efc5;
+  box-shadow: rgba(5, 209, 15, 0.4) 0px 5px;
 }
 
 /* Media Query for medium+ views */
 @media only screen and (min-width: 768px) {
-	.navigation {
-		display: flex;
-	}
-	.navigation li {
-		display: block; /* change state in small view */
-		flex: 1 1 auto;
-	}
-	.navigation a {
-		text-align: center;
-	}
-	.navigation li:first-child {
-		display: none;
-	}
-	#father-box .header{
-		display: inline-block;
-	}
+  .navigation {
+    display: flex;
+  }
+  .navigation li {
+    display: block; /* change state in small view */
+    flex: 1 1 auto;
+  }
+  .navigation a {
+    text-align: center;
+  }
+  .navigation li:first-child {
+    display: none;
+  }
+  #father-box .header {
+    display: inline-block;
+  }
 
-	header figure.logo{
-		float: left;
-		margin: 0 2% 0 0;
-	}
+  header figure.logo {
+    float: left;
+    margin: 0 2% 0 0;
+  }
 
-	.clearfix::after{
-		content: "";
-		display: table;
-		clear: both;
-	}
-	main.herodiv{
-		display: flex;
-		flex-direction: column;
-	}
-	main .herodiv.stas{
-		position: none;
-	}
-	main .preston-contact{
-		max-width: 100%;
-	}
-	main .article{
-		max-width: 100%;
-		margin: 0;
-	}
-
+  .clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  main.herodiv {
+    display: flex;
+    flex-direction: column;
+  }
+  main .herodiv.stas {
+    position: none;
+  }
+  main .preston-contact {
+    max-width: 100%;
+  }
+  main .article {
+    max-width: 100%;
+    margin: 0;
+  }
 }
 
-@media (max-width:650px){
-    header #site-logo{
-        width: 90%;
-        height: 90%;
-        grid-column: 3/5;
-    }
-	main{
-		padding: 5%;
-		margin: 0;
-	}
-
-
+@media (max-width: 650px) {
+  header #site-logo {
+    width: 90%;
+    height: 90%;
+    grid-column: 3/5;
+  }
+  main {
+    padding: 5%;
+    margin: 0;
+  }
 }

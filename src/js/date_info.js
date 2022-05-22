@@ -5,7 +5,7 @@ const daynames = [
   "Wednesday",
   "Thursday",
   "Friday",
-  "Saturday"
+  "Saturday",
 ];
 
 const months = [
@@ -20,7 +20,7 @@ const months = [
   "September",
   "October",
   "November",
-  "December"
+  "December",
 ];
 
 const currentDate = new Date();
@@ -34,4 +34,5 @@ const formattedFullDate = `${dayName}, ${currentDate.getDate()} ${monthName} ${c
 // document.querySelector("#current_date").textContent = formattedFullDate;
 // document.querySelector("#last_updated").textContent = "Last Updated: " + document.lastModified;
 
-document.body.appendChild(document.createElement("center")).innerText = "Last Updated: " + document.lastModified
+document.body.appendChild(document.createElement("center")).innerText =
+  "Last Updated: " + document.lastModified;
