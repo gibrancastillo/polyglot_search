@@ -1,5 +1,6 @@
-document.querySelector("#search-btn").addEventListener("click", () => {
-  const omdbSearch = document.querySelector("#search").value;
+document.querySelector("#translate-search-btn").addEventListener("click", () => {
+  // const omdbSearch = document.querySelector("#search").value;
+  const omdbSearch = document.querySelector("#search-phrase").value;
   const omdbRequestUrl = "https://www.omdbapi.com/?apikey=7f7fde0a&s=" + omdbSearch;
   
   fetch(omdbRequestUrl)
