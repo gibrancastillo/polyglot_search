@@ -47,11 +47,23 @@
 
     <!-- ---------------------------------------- CONTENT ----------------------------------------- -->
     <main>
-      <h1>Search It</h1>
-      <div>
+      <h1>Search/Translate It</h1>
+      <!-- <div>
         <input type="text" id="search" placeholder="Search Internet">
         <button id="search-btn">Search It</button>
+      </div> -->
+      <div>
+        <!-- <input type="text" id="phrase"> -->
+        <input type="text" id="search-phrase" placeholder="Search/Translate Internet">
+        <select id="fromSelect"></select>
+        <select id="toSelect"></select>
+        <!-- <button id="translate">Translate</button> -->
+        <button id="translate-search-btn">Search/Translate It</button>
+    
+        <ul id="speech"></ul>
+        <ul id="translation"></ul>
       </div>
+
       <div class="cards"></div>
 
       <br><br>
@@ -68,7 +80,8 @@
 
     <script src="js/toggle_menu.js"></script>
     <script src="js/date_info.js" defer></script>
-    <script src="js/images_lazy_load.js" defer></script>
+    <script src="js/voice_recognition_translate.js" defer></script>
     <script src="js/omdb_api.js" defer></script>
+    <script src="js/images_lazy_load.js" defer></script>
   </body>
 </html>
