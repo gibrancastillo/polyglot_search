@@ -112,7 +112,7 @@ nav a:visited {
 
 /*Body CSS*/
 main {
-  padding: 0 20%;
+  padding: 0 9%;
 }
 .image-blur {
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
@@ -204,3 +204,38 @@ footer p a {
 .separate {
   border-radius: 20%;
 }
+/*CONTAINER FOR MOVIES*/
+.cards {
+  max-width: 100%;
+  background-color: #ffffff;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  column-gap: 10px;
+  padding: 3%;
+}
+
+.cards section {
+  margin: 3%;
+  border: 0.5px solid #081c15;
+  flex: 1 0 20%;
+  background-color: #c9ebb5;
+  text-align:center;
+  padding:4%;  
+}
+
+section:hover {
+  background-color: #92e6a7;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+} 
+.cards img{
+  width:100%;
+  box-shadow: 0 0 10px #333;
+  margin-bottom: 10px;
+}
+@media only screen and (max-width:1200px){
+  
+  .cards {
+      grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
