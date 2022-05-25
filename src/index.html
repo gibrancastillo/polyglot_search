@@ -10,27 +10,20 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
     />
+    <title>Multilingual Search</title>
+    <script src="js/main.js" type="module"></script>
 
     <!-- ----------------------------------------- STYLE SHEETS ----------------------------------------- -->
     <link rel="stylesheet" href="css/normalize.css" />
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/small.css" />
-    <!-- smartphone-default -->
     <link rel="stylesheet" href="css/medium.css" />
-    <!-- enhance-tablet -->
-    <!-- <link rel="stylesheet" href="css/large.css"> -->
-    <!-- enhance-desktop -->
     <!-- x-------------------x-------------------x STYLE SHEETS x-------------------x-------------------x -->
-
-    <title>Multilingual Search</title>
-    <script src="js/main.js" type="module"></script>
   </head>
 
   <body>
     <!-- ----------------------------------------- HEADER ----------------------------------------- -->
-    <header class="divider" id="main-header">
-    
-    </header>
+    <header class="divider" id="main-header"></header>
     <!-- x-------------------x-------------------x HEADER x-------------------x-------------------x -->
 
     <!-- -------------------------------------- NAVIGATION --------------------------------------- -->
@@ -47,42 +40,39 @@
 
     <!-- ---------------------------------------- CONTENT ----------------------------------------- -->
     <main>
-      <img id="banner-image" src="assets/images/marketing/movies-banner.jpg" alt="Movies banner Camaleon"/>
+      <!-- <img id="banner-image" src="assets/images/marketing/movies-banner.jpg" alt="Movies banner Camaleon"/> -->
 
       <h1>Search/Translate It</h1>
-      <!-- <div>
-        <input type="text" id="search" placeholder="Search Internet">
-        <button id="search-btn">Search It</button>
-      </div> -->
       <div class="form-container">
-        <!-- <input type="text" id="phrase"> -->
-        <input type="text" id="search-phrase" placeholder="Search/Translate Internet">
+        <input
+          type="text"
+          id="search-phrase"
+          placeholder="Search/Translate Internet"
+        />
         <select id="fromSelect"></select>
         <select id="toSelect"></select>
-        <!-- <button id="translate">Translate</button> -->
         <button id="translate-search-btn">Search/Translate It</button>
-    
-        <ul id="speech"></ul>
-        <ul id="translation"></ul>
       </div>
+      <div class="container">
+        <div id="entered-uttered-text"></div>
+        <div id="translation"></div>
+      </div>
+      <section>
+        <div class="cards"></div>
+      </section>
 
-      <br><br>
-      <section class="container1"><div class="cards"></div></section>
+      <br /><br />
     </main>
     <!-- x-----------------x--------------------x CONTENT x------------------x--------------------x -->
 
     <!-- ----------------------------------------- FOOTER ----------------------------------------- -->
-    <footer id="main-footer">
-    
-    </footer>
-    <!-- x-----------------x---------------------x FOOTER x------------------x--------------------x -->
-
+    <footer id="main-footer"></footer>
     <span id="last_updated"></span>
+    <!-- x-----------------x---------------------x FOOTER x------------------x--------------------x -->
 
     <script src="js/toggle_menu.js"></script>
     <script src="js/date_info.js" defer></script>
     <script src="js/voice_recognition_translate.js" defer></script>
     <script src="js/omdb_api.js" defer></script>
-    <script src="js/images_lazy_load.js" defer></script>
   </body>
 </html>

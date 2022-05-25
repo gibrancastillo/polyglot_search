@@ -10,26 +10,20 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
     />
+    <title>Multilingual Search</title>
+    <script src="js/main.js" type="module"></script>
 
     <!-- ----------------------------------------- STYLE SHEETS ----------------------------------------- -->
     <link rel="stylesheet" href="css/normalize.css" />
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/small.css" />
-    <!-- smartphone-default -->
     <link rel="stylesheet" href="css/medium.css" />
-    <!-- enhance-tablet -->
-    <!-- <link rel="stylesheet" href="css/large.css"> -->
-    <!-- enhance-desktop -->
     <!-- x-------------------x-------------------x STYLE SHEETS x-------------------x-------------------x -->
-
-    <title>Multilingual Search</title>
   </head>
 
   <body>
     <!-- ----------------------------------------- HEADER ----------------------------------------- -->
-    <header class="divider" id="main-header">
-    
-    </header>
+    <header class="divider" id="main-header"></header>
     <!-- x-------------------x-------------------x HEADER x-------------------x-------------------x -->
 
     <!-- -------------------------------------- NAVIGATION --------------------------------------- -->
@@ -46,22 +40,39 @@
 
     <!-- ---------------------------------------- CONTENT ----------------------------------------- -->
     <main>
-      <h1>Landing Page</h1>
-      <h2>Search</h2>
-      <!-- Pending!! -->
+      <!-- <img id="banner-image" src="assets/images/marketing/movies-banner.jpg" alt="Movies banner Camaleon"/> -->
+
+      <h1>Search/Translate It</h1>
+      <div class="form-container">
+        <input
+          type="text"
+          id="search-phrase"
+          placeholder="Search/Translate Internet"
+        />
+        <select id="fromSelect"></select>
+        <select id="toSelect"></select>
+        <button id="translate-search-btn">Search/Translate It</button>
+      </div>
+      <div class="container">
+        <div id="entered-uttered-text"></div>
+        <div id="translation"></div>
+      </div>
+      <section>
+        <div class="cards"></div>
+      </section>
+
+      <br /><br />
     </main>
     <!-- x-----------------x--------------------x CONTENT x------------------x--------------------x -->
 
     <!-- ----------------------------------------- FOOTER ----------------------------------------- -->
-    <footer id="main-footer">
-    
-    </footer>
-    <!-- x-----------------x---------------------x FOOTER x------------------x--------------------x -->
-
+    <footer id="main-footer"></footer>
     <span id="last_updated"></span>
+    <!-- x-----------------x---------------------x FOOTER x------------------x--------------------x -->
 
     <script src="js/toggle_menu.js"></script>
     <script src="js/date_info.js" defer></script>
-    <script src="js/images_lazy_load.js" defer></script>
+    <script src="js/voice_recognition_translate.js" defer></script>
+    <script src="js/omdb_api.js" defer></script>
   </body>
 </html>
