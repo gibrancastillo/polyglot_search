@@ -70,36 +70,34 @@
     padding: 0 5%;
     margin: 0;
   }
-  main #search-phrase{
+  main #search-phrase {
     grid-column: 3/8;
     grid-row: 1/2;
   }
-  main #fromSelect{
+  main #fromSelect {
     grid-column: 9/12;
     grid-row: 1/2;
   }
-  main #toSelect{
+  main #toSelect {
     grid-column: 9/12;
     grid-row: 2/3;
   }
-  main #translate-search-btn{
+  main #translate-search-btn {
     grid-column: 5/10;
     grid-row: 3/4;
   }
-  main #speech{
+  main #speech {
     grid-column: 3/12;
     grid-row: 4/5;
   }
-  main #translation{
+  main #translation {
     grid-column: 3/12;
     grid-row: 5/6;
   }
 }
 
-@media (max-width:500px){
-
+@media (max-width: 500px) {
   .cards {
-      grid-template-columns: 1fr;
+    grid-template-columns: 1fr;
   }
-
 }

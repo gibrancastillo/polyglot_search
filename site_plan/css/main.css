@@ -214,40 +214,37 @@ footer p a {
 }
 
 .cards section {
-
   flex: 1 0 20%;
-  background-color: #001D3D;
-  text-align:center;
-  padding:4%;  
+  background-color: #001d3d;
+  text-align: center;
+  padding: 4%;
 }
 
 section:hover {
   background-color: #0e0d0d;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-} 
-img{
-  width:100%;
-  padding: 0.5rem; 
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+img {
+  width: 100%;
+  padding: 0.5rem;
   box-shadow: 0 0 10px #333;
   margin-bottom: 10px;
 }
-@media only screen and (max-width:1200px){
-  
+@media only screen and (max-width: 1200px) {
   .cards {
-      grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }
-@media only screen and (max-width:850px){
-  
+@media only screen and (max-width: 850px) {
   .cards {
-      grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
   }
 }
 
-@media (max-width:500px){
-
+@media (max-width: 500px) {
   .cards {
-      grid-template-columns: 1fr;
+    grid-template-columns: 1fr;
   }
-
 }
