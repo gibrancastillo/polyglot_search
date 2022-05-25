@@ -35,7 +35,11 @@ function loadMovies(jsonObject){
     title4.textContent = "Year: " + movies[i].Year
     card.appendChild(title4)
     let image = document.createElement("img")
-    image.setAttribute("src", movies[i].Poster)
+    if (movies[i].Poster == "N/A"){
+      image.setAttribute("src", "../assets/images/marketing/NOimages.png")
+    }else{
+      image.setAttribute("src", movies[i].Poster)
+    }
     image.setAttribute("alt", movies[i].Title)
     card.appendChild(image)
 
