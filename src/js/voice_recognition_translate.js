@@ -3,6 +3,8 @@
 // ------------------------------------------------------------------------ \\
 let fromLang = document.querySelector("#fromSelect");
 let toLang = document.querySelector("#toSelect");
+let translateSearchBtn = document.querySelector("#translate-search-btn");
+let phrase = document.querySelector("#search-phrase");
 getLanguages();
 
 function getLanguages() {
@@ -31,63 +33,17 @@ function langList(list, src, select) {
   select.innerHTML = list.filter(l => src ? l.support_source : l.support_target)
     .map(l => `<option value="${l.language_code}">${l.display_name}</option>`).join("\n");
 }
-// x--------------------x----------------------------x--------------------x \\
-
-
-let enteredText = document.querySelector("#entered-text");
-let translation = document.querySelector("#translation");
-let translateSearchBtn = document.querySelector("#translate-search-btn");
-let phrase = document.querySelector("#search-phrase");
-
 
 translateSearchBtn.addEventListener("click", translatePhrase);
-
 
 function translatePhrase() {
   let sourceLang = fromLang.value;
   let targetLang = toLang.value;
-  enteredText.innerHTML += `<li>You typed: ${phrase.value}</li>`;
-  howDoYouSay(phrase.value, sourceLang, targetLang);
+  pText.innerText = `Typed or Uttered: ${phrase.value}`;
+  translateText(phrase.value, sourceLang, targetLang);
 }
 
-// speech to text
-const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-const recognition = new SpeechRecognition();
-
-// recognition.continuous = true;
-recognition.interimResults = true;
-recognition.addEventListener("result", (event) => {
-  const text = Array.from(event.results)
-    .map((result) => result[0])
-    .map((result) => result.transcript)
-    .join("");
-  
-  if (event.results[0].isFinal) {
-    enteredText.innerHTML += `<li>You said: ${text}</li>`;
-    document.querySelector("#search-phrase").value = text;
-    document.querySelector("#translate-search-btn").click();
-    let uniqueArray = [...new Set(text.toLowerCase().split(" "))];
-
-    if (uniqueArray.indexOf("color") >= 0) {
-      uniqueArray.splice(uniqueArray.indexOf("color"), 1);
-      let color = uniqueArray.join("");
-      document.body.style.backgroundColor = color;
-    }
-
-    // text to speech
-    let sourceLang = fromLang.value;
-    let targetLang = toLang.value;
-    howDoYouSay(text, sourceLang, targetLang);
-  }
-});
-
-recognition.addEventListener("end", () => {
-  recognition.start();
-});
-
-recognition.start();
-
-function howDoYouSay(text, from, to) {
+function translateText(text, from, to) {
   const params = new URLSearchParams();
   params.append("to", to);
   params.append("from", from);
@@ -107,8 +63,57 @@ function howDoYouSay(text, from, to) {
     .then(response => response.json())
     .then(json => {
       let translatedText = json.translations[0].translated[0];
-      translation.innerHTML += `<li>${translatedText}</li>`;
+      pTranslation.innerHTML = `Translated: ${translatedText}`;
       recognition.start();
     })
     .catch(error => console.error(error));
 }
+// x--------------------x--------------x--------------x--------------------x \\
+
+
+// -------------------------------- Speech Recognition Functionality ------------------------------ \\
+// ------ Capture speech or utterance in any language and then translate to desire language ------- \\
+// ------------------------------------------------------------------------------------------------ \\
+let enteredUtteredText = document.querySelector("#entered-uttered-text");
+let translation = document.querySelector("#translation");
+let pText = document.createElement("p");
+let pTranslation = document.createElement("p");
+
+// speech to text
+const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+const recognition = new SpeechRecognition();
+// recognition.continuous = true;
+recognition.interimResults = true;
+
+recognition.addEventListener("result", (event) => {
+  enteredUtteredText.appendChild(pText);
+  translation.appendChild(pTranslation);
+  const text = Array.from(event.results)
+    .map((result) => result[0])
+    .map((result) => result.transcript)
+    .join("");
+  
+  if (event.results[0].isFinal) {
+    document.querySelector("#search-phrase").value = text;
+    document.querySelector("#translate-search-btn").click();
+    let uniqueArray = [...new Set(text.toLowerCase().split(" "))];
+
+    if (uniqueArray.indexOf("color") >= 0) {
+      uniqueArray.splice(uniqueArray.indexOf("color"), 1);
+      let color = uniqueArray.join("");
+      document.body.style.backgroundColor = color;
+    }
+
+    // text to speech
+    let sourceLang = fromLang.value;
+    let targetLang = toLang.value;
+    translateText(text, sourceLang, targetLang);
+  }
+});
+
+recognition.addEventListener("end", () => {
+  recognition.start();
+});
+
+recognition.start();
+// x-------------------------------x------------------------------x-------------------------------x \\

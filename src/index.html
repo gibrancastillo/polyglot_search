@@ -6,30 +6,23 @@
     <meta name="description" content="Multilingual Search Website" />
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
     <!-- Tells smartphones to provide their correct width & stops the font from enlarging when a smartphone is turned sideways -->
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <title>Multilingual Search</title>
+    <script src="js/main.js" type="module"></script>
 
     <!-- ----------------------------------------- STYLE SHEETS ----------------------------------------- -->
     <link rel="stylesheet" href="css/normalize.css" />
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/small.css" />
-    <!-- smartphone-default -->
     <link rel="stylesheet" href="css/medium.css" />
-    <!-- enhance-tablet -->
-    <!-- <link rel="stylesheet" href="css/large.css"> -->
-    <!-- enhance-desktop -->
     <!-- x-------------------x-------------------x STYLE SHEETS x-------------------x-------------------x -->
-
-    <title>Multilingual Search</title>
-    <script src="js/main.js" type="module"></script>
   </head>
 
   <body>
     <!-- ----------------------------------------- HEADER ----------------------------------------- -->
     <header class="divider" id="main-header"></header>
     <!-- x-------------------x-------------------x HEADER x-------------------x-------------------x -->
+
 
     <!-- -------------------------------------- NAVIGATION --------------------------------------- -->
     <nav>
@@ -43,9 +36,10 @@
     </nav>
     <!-- x------------------x-----------------x NAVIGATION x------------------x------------------x -->
 
+
     <!-- ---------------------------------------- CONTENT ----------------------------------------- -->
     <main>
-      <img id="banner-image" src="assets/images/marketing/movies-banner.jpg" alt="Movies banner Camaleon"/>
+      <!-- <img id="banner-image" src="assets/images/marketing/movies-banner.jpg" alt="Movies banner Camaleon"/> -->
 
       <h1>Search/Translate It</h1>
       <div class="form-container">
@@ -53,12 +47,12 @@
         <select id="fromSelect"></select>
         <select id="toSelect"></select>
         <button id="translate-search-btn">Search/Translate It</button>
-    
-        <ul id="entered-text"></ul>
-        <ul id="translation"></ul>
       </div>
-      
-      <section class="container1">
+      <div class="container">
+        <div id="entered-uttered-text"></div>
+        <div id="translation"></div>
+      </div>
+      <section>
         <div class="cards"></div>
       </section>
 
@@ -66,11 +60,12 @@
     </main>
     <!-- x-----------------x--------------------x CONTENT x------------------x--------------------x -->
 
+
     <!-- ----------------------------------------- FOOTER ----------------------------------------- -->
     <footer id="main-footer"></footer>
+    <span id="last_updated"></span>
     <!-- x-----------------x---------------------x FOOTER x------------------x--------------------x -->
 
-    <span id="last_updated"></span>
 
     <script src="js/toggle_menu.js"></script>
     <script src="js/date_info.js" defer></script>
