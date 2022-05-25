@@ -30,6 +30,9 @@ recognition.onresult = event => {
   speech.innerHTML += `<li>${text}</li>`;
   if (res.isFinal) {
     speech.innerHTML += `<li>You said: ${text}</li>`;
+    document.querySelector("#search-phrase").value = text;
+    var elemento = document.getElementById("translate-search-btn");
+    elemento.click();
     var uniqueArray = [...new Set(text.toLowerCase().split(" "))]
     if (uniqueArray.indexOf("color") >= 0) {
       uniqueArray.splice(uniqueArray.indexOf("color"), 1);
