@@ -1,11 +1,11 @@
 function convertToText(res) {
-  if (res.ok) {
+  if (!res.ok){
+    throw new Error("Bad Respones")
+    }else{
     return res.text();
-  } else {
-    throw new Error("Bad Response");
+    }
   }
-}
-
+  
 // wrapper for querySelector...returns matching element
 export function qs(selector, parent = document) {
   return parent.querySelector(selector);
@@ -65,7 +65,7 @@ export async function loadHeaderFooter() {
   const header = await loadTemplate("../partials/header.html");
   const footer = await loadTemplate("../partials/footer.html");
   const headerElement = document.querySelector("#main-header");
-  const footerElemtnt = document.querySelector("#main-footer");
+  const footerElement = document.querySelector("#main-footer");
   renderWithTemplate(header, headerElement);
-  renderWithTemplate(footer, footerElemtnt);
+  renderWithTemplate(footer, footerElement);
 }
