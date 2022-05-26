@@ -1,11 +1,11 @@
 function convertToText(res) {
   if (!res.ok){
-    throw new Error("Bad Respones")
+    throw new Error("Bad Response");
     }else{
     return res.text();
     }
   }
-  
+
 // wrapper for querySelector...returns matching element
 export function qs(selector, parent = document) {
   return parent.querySelector(selector);
