@@ -1,10 +1,10 @@
 function convertToText(res) {
-  if (!res.ok){
+  if (!res.ok) {
     throw new Error("Bad Response");
-    }else{
+  } else {
     return res.text();
-    }
   }
+}
 
 // wrapper for querySelector...returns matching element
 export function qs(selector, parent = document) {

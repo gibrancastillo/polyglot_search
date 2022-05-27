@@ -1,32 +1,48 @@
-document
-  .querySelector("#translate-search-btn")
-  .addEventListener("click", () => {
-    const omdbSearch = document.querySelector("#search-phrase").value;
-    const omdbRequestUrl =
-      "https://www.omdbapi.com/?apikey=7f7fde0a&s=" + omdbSearch;
+document.querySelector("#translate-search-btn").addEventListener("click", () => {
+  let omdbRequestUrl = "";
+  const omdbSearch = document.querySelector("#search-phrase").value;
+  
+  if(window.location.pathname == "/") {
+    omdbRequestUrl = "https://www.omdbapi.com/?apikey=7f7fde0a&s=" + omdbSearch;
+  } else {
+    omdbRequestUrl = "https://www.omdbapi.com/?apikey=7f7fde0a&t=" + omdbSearch;
+  }
+  
+  fetch(omdbRequestUrl)
+    .then((response) => {
+      const contentType = response.headers.get("content-type");
+      if (!contentType || !contentType.includes("application/json")) {
+        throw new TypeError("Oops, we haven't got JSON!");
+      }
+      return response.json();
+    })
+    .then((jsonObject) => {
+      /* process your data further */
+      console.table(jsonObject); // temporary checking for valid response and data parsing
 
-    fetch(omdbRequestUrl)
-      .then((response) => {
-        const contentType = response.headers.get("content-type");
-        if (!contentType || !contentType.includes("application/json")) {
-          throw new TypeError("Oops, we haven't got JSON!");
-        }
-        return response.json();
-      })
-      .then((jsonObject) => {
-        /* process your data further */
-        console.table(jsonObject); // temporary checking for valid response and data parsing
+      if(window.location.pathname == "/") {
         loadMovies(jsonObject);
-        createBanner();
-      })
-      .catch((error) => console.error(error));
-  });
+      } else {
+        //loadMovie(jsonObject);
+        console.log("loadMovie(jsonObject)");
+      }
+      
+      createBanner();
+    })
+    .catch((error) => console.error(error));
+});
 
-//const omdbDetailRequestUrl = "https://www.omdbapi.com/?apikey=7f7fde0a&t=" + title;
+//const omdbDetailRequestUrl = "https://www.omdbapi.com/?apikey=7f7fde0a&t=" + movies[i].Title;
 function loadMovies(jsonObject) {
   const movies = jsonObject["Search"];
 
   for (let i = 0; i < movies.length; i++) {
+    //<a href=""><section>...</section></a>
+    // Anchored
+    let anchored = document.createElement("a");
+    anchored.href = "page1/index.html"
+    card.appendChild(anchored);
+
     // Create card (section element)
     let card = document.createElement("section");
 
@@ -57,10 +73,14 @@ function loadMovies(jsonObject) {
     image.setAttribute("alt", movies[i].Title);
     card.appendChild(image);
 
-    // Add card (section element) to class "cards" div element
-    document.querySelector("div.cards").appendChild(card);
+    // Add card (section element) to <a> (anchored) element
+    anchored.appendChild(card)
+
+    // Add anchored (<a> element) to class "cards" div element
+    document.querySelector("div.cards").appendChild(anchored);
   }
 }
+
 function createBanner(){
   document.querySelector(".banner-css").innerHTML = textBaner();
   setTimeout(() => {
@@ -80,16 +100,11 @@ function textBaner(){
   </symbol>  
 
   <!-- Duplicate symbols -->
-  <use xlink:href="#s-text" class="text"
-       ></use>
-  <use xlink:href="#s-text" class="text"
-       ></use>
-  <use xlink:href="#s-text" class="text"
-       ></use>
-  <use xlink:href="#s-text" class="text"
-       ></use>
-  <use xlink:href="#s-text" class="text"
-       ></use>
+  <use xlink:href="#s-text" class="text"></use>
+  <use xlink:href="#s-text" class="text"></use>
+  <use xlink:href="#s-text" class="text"></use>
+  <use xlink:href="#s-text" class="text"></use>
+  <use xlink:href="#s-text" class="text"></use>
 
 </svg>`;
 }
