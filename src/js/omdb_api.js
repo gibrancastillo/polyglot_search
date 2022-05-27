@@ -17,6 +17,7 @@ document
         /* process your data further */
         console.table(jsonObject); // temporary checking for valid response and data parsing
         loadMovies(jsonObject);
+        createBanner();
       })
       .catch((error) => console.error(error));
   });
@@ -59,4 +60,36 @@ function loadMovies(jsonObject) {
     // Add card (section element) to class "cards" div element
     document.querySelector("div.cards").appendChild(card);
   }
+}
+function createBanner(){
+  document.querySelector(".banner-css").innerHTML = textBaner();
+  setTimeout(() => {
+    document.querySelector(".banner-css").innerHTML = "";
+  }, 4000);
+}
+
+function textBaner(){
+  return `<svg viewBox="0 0 1320 300">
+
+  <!-- Symbol -->
+  <symbol id="s-text">
+    <text text-anchor="middle"
+          x="50%" y="50%" dy=".35em">
+        L O A D I N G . . .
+    </text>
+  </symbol>  
+
+  <!-- Duplicate symbols -->
+  <use xlink:href="#s-text" class="text"
+       ></use>
+  <use xlink:href="#s-text" class="text"
+       ></use>
+  <use xlink:href="#s-text" class="text"
+       ></use>
+  <use xlink:href="#s-text" class="text"
+       ></use>
+  <use xlink:href="#s-text" class="text"
+       ></use>
+
+</svg>`;
 }
