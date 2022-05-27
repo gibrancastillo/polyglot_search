@@ -9,6 +9,7 @@
 .responsive a.ham::before {
   content: "❌";
 }
+
 .active {
   border: 0.5px solid #081c15;
   background-color: #b7efc5;
@@ -20,83 +21,38 @@
   .navigation {
     display: flex;
   }
+
   .navigation li {
-    display: block; /* change state in small view */
+    display: block;
+    /* change state in small view */
     flex: 1 1 auto;
   }
-  .navigation a {
-    text-align: center;
-  }
+
   .navigation li:first-child {
     display: none;
-  }
-  #father-box .header {
-    display: inline-block;
-  }
-
-  header figure.logo {
-    float: left;
-    margin: 0 2% 0 0;
-  }
-
-  .clearfix::after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-  main.herodiv {
-    display: flex;
-    flex-direction: column;
-  }
-  main .herodiv.stas {
-    position: none;
-  }
-  main .preston-contact {
-    max-width: 100%;
-  }
-  main .article {
-    max-width: 100%;
-    margin: 0;
   }
 }
 
 @media (max-width: 650px) {
-  header #site-logo {
-    width: 90%;
-    height: 90%;
-    grid-column: 3/5;
-  }
   main {
     padding: 0 5%;
     margin: 0;
   }
-  main #search-phrase {
-    grid-column: 3/8;
-    grid-row: 1/2;
+
+  legend {
+    font-size: 2.1rem;
   }
-  main #fromSelect {
-    grid-column: 9/12;
-    grid-row: 1/2;
-  }
-  main #toSelect {
-    grid-column: 9/12;
-    grid-row: 2/3;
-  }
-  main #translate-search-btn {
-    grid-column: 5/10;
-    grid-row: 3/4;
-  }
-  main #speech {
-    grid-column: 3/12;
-    grid-row: 4/5;
-  }
-  main #translation {
-    grid-column: 3/12;
-    grid-row: 5/6;
+
+  footer p {
+    font-size: 1.1rem;
   }
 }
 
 @media (max-width: 500px) {
+  .navigation a {
+    font-size: clamp(1rem, 2vmin, 1.5rem);
+  }
+  
   .cards {
     grid-template-columns: 1fr;
   }
