@@ -111,7 +111,12 @@ nav a:visited {
 }
 
 /*Body CSS*/
+body{
+  background: #081C15;
+}
 main {
+  background: #081C15;
+  opacity: 0.5;
   padding: 0 20%;
 }
 .image-blur {
