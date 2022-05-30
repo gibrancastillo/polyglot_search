@@ -66,7 +66,6 @@ function translateText(text, from, to) {
     .then((json) => {
       let translatedText = json.translations[0].translated[0];
       pTranslation.innerHTML = `Translated: ${translatedText}`;
-      recognition.start();
     })
     .catch((error) => console.error(error));
 }

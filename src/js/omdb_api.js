@@ -2,7 +2,9 @@ document.querySelector("#translate-search-btn").addEventListener("click", () => 
   let omdbRequestUrl = "";
   const omdbSearch = document.querySelector("#search-phrase").value;
   
-  if(location.pathname == "/index.html" || location.pathname == "/" || location.pathname == "/polyglot_search/src/"  || location.pathname == "/polyglot_search/src/index.html") {
+  if(location.pathname == "/index.html" || location.pathname == "/" || 
+     location.pathname == "/polyglot_search/src/"  || location.pathname == "/polyglot_search/src/index.html" ||
+     location.pathname == "/polyglot_search/build/"  || location.pathname == "/polyglot_search/build/index.html") {
     omdbRequestUrl = "https://www.omdbapi.com/?apikey=7f7fde0a&s=" + omdbSearch;
   } else {
     omdbRequestUrl = "https://www.omdbapi.com/?apikey=7f7fde0a&t=" + omdbSearch;
@@ -18,16 +20,17 @@ document.querySelector("#translate-search-btn").addEventListener("click", () => 
     })
     .then((jsonObject) => {
       /* process your data further */
-      console.table(jsonObject); // temporary checking for valid response and data parsing
+      // console.table(jsonObject); // temporary checking for valid response and data parsing
 
-      if(location.pathname == "/index.html" || location.pathname == "/" || location.pathname == "/polyglot_search/src/"  || location.pathname == "/polyglot_search/src/index.html") {
+      if(location.pathname == "/index.html" || location.pathname == "/" || 
+         location.pathname == "/polyglot_search/src/"  || location.pathname == "/polyglot_search/src/index.html" ||
+         location.pathname == "/polyglot_search/build/"  || location.pathname == "/polyglot_search/build/index.html") {
         createBanner();
         loadMovies(jsonObject);
         
       } else {
         createBanner();
         loadMovie(jsonObject);
-        console.log("loadMovie(jsonObject)");
       }
       
       
@@ -119,6 +122,7 @@ function textBaner(){
 
 </svg>`;
 }
+
 function loadMovie(jsonObject){
   const movie = jsonObject;
   if(movie.Response == "False"){
@@ -128,53 +132,59 @@ function loadMovie(jsonObject){
     h2.textContent = "Sorry..! Movie not found!";
     card.appendChild(h2);
     document.querySelector(".cards").appendChild(card);
-  }else{
-
+  } else {
     let anchored = document.createElement("a");
     anchored.href = "page1/index.html"
     
-
     // Create card (section element)
     let card = document.createElement("section");
     anchored.appendChild(card);
+
     // h2 Title
     let h2 = document.createElement("h2");
     h2.textContent = movie.Title;
     card.appendChild(h2);
-      // Image
+
+    // Image
     let image = document.createElement("img");
 
     if (movie.Poster == "N/A") {
       image.setAttribute("src", "../assets/images/marketing/NOimages.png");
     } else {
       image.setAttribute("src", movie.Poster);
-    
       image.setAttribute("alt", movie.Title);
       card.appendChild(image);
+
       // h4 Title
       let h4 = document.createElement("h4");
       h4.textContent = "Actors: " + movie.Actors;
       card.appendChild(h4);
+      
       // h5 Title
       let h5 = document.createElement("h5");
       h5.textContent = "Type: " + movie.Type;
       card.appendChild(h5);
+      
       //h6 Tittle
       let h6 = document.createElement("h6");
       h6.textContent = "Writer: " + movie.Writer;
       card.appendChild(h6);
+      
       //Title
       let h62 = document.createElement("h6");
       h62.textContent = "Genre: " + movie.Genre;
       card.appendChild(h62);
+      
       //Title
       let p = document.createElement("p");
       p.textContent = "Plot: " + movie.Plot;
       card.appendChild(p);
+      
       //Title
       let h63 = document.createElement("h6");
       h63.textContent = "Language: " + movie.Language;
       card.appendChild(h63);
+      
       //Title
       let h64 = document.createElement("h6");
       h64.textContent = "Date: " + movie.Released;
