@@ -2,7 +2,7 @@ document.querySelector("#translate-search-btn").addEventListener("click", () => 
   let omdbRequestUrl = "";
   const omdbSearch = document.querySelector("#search-phrase").value;
   
-  if(window.location.pathname == "/index.html"  || window.location.pathname == "/") {
+  if(location.pathname == "/index.html" || location.pathname == "/" || location.pathname == "/polyglot_search/src/"  || location.pathname == "/polyglot_search/src/index.html") {
     omdbRequestUrl = "https://www.omdbapi.com/?apikey=7f7fde0a&s=" + omdbSearch;
   } else {
     omdbRequestUrl = "https://www.omdbapi.com/?apikey=7f7fde0a&t=" + omdbSearch;
@@ -20,7 +20,7 @@ document.querySelector("#translate-search-btn").addEventListener("click", () => 
       /* process your data further */
       console.table(jsonObject); // temporary checking for valid response and data parsing
 
-      if(window.location.pathname == "/index.html" || window.location.pathname == "/") {
+      if(location.pathname == "/index.html" || location.pathname == "/" || location.pathname == "/polyglot_search/src/"  || location.pathname == "/polyglot_search/src/index.html") {
         createBanner();
         loadMovies(jsonObject);
         
