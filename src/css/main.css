@@ -156,6 +156,10 @@ h2 {
   font-family: Abel;
   color: #1b4332;
 }
+h3, h4, h5 ,h6{
+  font-family: Abel;
+  color: #154732;
+}
 
 p {
   font-size: 1.5rem;
