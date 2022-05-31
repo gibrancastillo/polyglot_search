@@ -32,29 +32,50 @@ document.querySelector("#translate-search-btn").addEventListener("click", () => 
         createBanner();
         loadMovie(jsonObject);
       }
-      
-      
     })
     .catch((error) => console.error(error));
 });
 
-//const omdbDetailRequestUrl = "https://www.omdbapi.com/?apikey=7f7fde0a&t=" + movies[i].Title;
+// document.querySelector("#search-detail").addEventListener("click", () => {
+//   const queryString = window.location.search;
+//   const urlParams = new URLSearchParams(queryString);
+//   let omdbRequestUrl = "https://www.omdbapi.com/?apikey=7f7fde0a&t=" + urlParams.get("detailsUrl");
+  
+//   fetch(omdbRequestUrl)
+//     .then((response) => {
+//       const contentType = response.headers.get("content-type");
+//       if (!contentType || !contentType.includes("application/json")) {
+//         throw new TypeError("Oops, we haven't got JSON!");
+//       }
+//       return response.json();
+//     })
+//     .then((jsonObject) => {
+//       /* process your data further */
+//       // console.table(jsonObject); // temporary checking for valid response and data parsing
+//       createBanner();
+//       loadMovie(jsonObject);
+//     })
+//     .catch((error) => console.error(error));
+// });
+
 function loadMovies(jsonObject) {
   if(jsonObject.Response == "False"){
     let card = document.createElement("section");
+
     // h2 Title
     let h2 = document.createElement("h2");
     h2.textContent = "Sorry..! Movie not found!";
     card.appendChild(h2);
     document.querySelector(".cards").appendChild(card);
-  }else{
+  } else {
     const movies = jsonObject["Search"];
+
     for (let i = 0; i < movies.length; i++) {
       //<a href=""><section>...</section></a>
       // Anchored
       let anchored = document.createElement("a");
-      anchored.href = "page1/index.html"
-      
+      anchored.id = "search-detail";
+      anchored.href = "page1/index.html?detailsUrl=https://www.omdbapi.com/?apikey=7f7fde0a&t=" + movies[i].Title;
 
       // Create card (section element)
       let card = document.createElement("section");
@@ -125,8 +146,9 @@ function textBaner(){
 
 function loadMovie(jsonObject){
   const movie = jsonObject;
-  if(movie.Response == "False"){
+  if(movie.Response == "False") {
     let card = document.createElement("section");
+
     // h2 Title
     let h2 = document.createElement("h2");
     h2.textContent = "Sorry..! Movie not found!";
