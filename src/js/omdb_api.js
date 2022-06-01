@@ -51,7 +51,7 @@ document.querySelector("#translate-search-btn").addEventListener("click", () => 
 //     })
 //     .then((jsonObject) => {
 //       /* process your data further */
-//       // console.table(jsonObject); // temporary checking for valid response and data parsing
+//       console.table(jsonObject); // temporary checking for valid response and data parsing
 //       createBanner();
 //       loadMovie(jsonObject);
 //     })
@@ -74,7 +74,7 @@ function loadMovies(jsonObject) {
       //<a href=""><section>...</section></a>
       // Anchored
       let anchored = document.createElement("a");
-      anchored.id = "search-detail";
+      anchored.id = movies[i].imdbID; //"search-detail" + [i];
       anchored.href = "page1/index.html?detailsUrl=https://www.omdbapi.com/?apikey=7f7fde0a&t=" + movies[i].Title;
 
       // Create card (section element)

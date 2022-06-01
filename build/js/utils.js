@@ -1,8 +1,8 @@
 function convertToText(res) {
-  if (res.ok) {
-    return res.text();
-  } else {
+  if (!res.ok) {
     throw new Error("Bad Response");
+  } else {
+    return res.text();
   }
 }
 
@@ -62,8 +62,20 @@ export async function loadTemplate(path) {
 }
 
 export async function loadHeaderFooter() {
-  const header = await loadTemplate("../partials/header.html");
-  const footer = await loadTemplate("../partials/footer.html");
+  let header = "";
+  let footer = "";
+
+  if(location.pathname.indexOf("src") >= 0) {
+    header = await loadTemplate("../src/partials/header.html");
+    footer = await loadTemplate("../src//partials/footer.html");
+  } else if(location.pathname.indexOf("build") >= 0) {
+    header = await loadTemplate("../build/partials/header.html");
+    footer = await loadTemplate("../build/partials/footer.html");
+  } else {
+    header = await loadTemplate("../partials/header.html");
+    footer = await loadTemplate("../partials/footer.html");
+  }
+  
   const headerElement = document.querySelector("#main-header");
   const footerElemtnt = document.querySelector("#main-footer");
   renderWithTemplate(header, headerElement);

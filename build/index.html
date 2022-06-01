@@ -11,7 +11,6 @@
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
     />
     <title>Multilingual Search</title>
-    <script src="js/main.js" type="module"></script>
 
     <!-- ----------------------------------------- STYLE SHEETS ----------------------------------------- -->
     <link rel="stylesheet" href="css/normalize.css" />
@@ -23,36 +22,47 @@
 
   <body>
     <!-- ----------------------------------------- HEADER ----------------------------------------- -->
-    <header class="divider" id="main-header"></header>
+    <header id="main-header"></header>
     <!-- x-------------------x-------------------x HEADER x-------------------x-------------------x -->
+
 
     <!-- -------------------------------------- NAVIGATION --------------------------------------- -->
     <nav>
       <!-- <button id="hamburger-btn">🛵</button> -->
       <ul class="navigation">
         <li><a class="ham" href="#">&#9776;</a></li>
-        <li><a class="active" href="index.html">Home</a></li>
-        <li><a href="./page1/index.html">Page 1</a></li>
-        <li><a href="./page2/index.html">Page 2</a></li>
+        <li><a class="active" href="index.html">Search List</a></li>
+        <li><a href="./page1/index.html">Search Details</a></li>
+        <li><a href="./page2/index.html">App Video</a></li>
       </ul>
     </nav>
     <!-- x------------------x-----------------x NAVIGATION x------------------x------------------x -->
 
+
     <!-- ---------------------------------------- CONTENT ----------------------------------------- -->
     <main>
-      <!-- <img id="banner-image" src="assets/images/marketing/movies-banner.jpg" alt="Movies banner Camaleon"/> -->
+      <h1>Explore</h1>
+      <fieldset>
+        <div class="container-form">
+          <div class="sub-container-form1">
+            <div class="banner-css"></div>
+          </div>
+          <div class="sub-container-form2">
+            <legend>Search & Translate</legend>
+            <label class="top">
+              <input type="text" id="search-phrase" placeholder="Search/Translate Internet" required/>
+            </label>
+            <label class="top">
+              <select id="fromSelect"></select>
+            </label>
+            <label class="top">
+              <select id="toSelect"></select>
+            </label>
+          </div>
+        </div>
+      </fieldset>
+      <button type="submit" id="translate-search-btn">Search and Translate</button>
 
-      <h1>Search/Translate It</h1>
-      <div class="form-container">
-        <input
-          type="text"
-          id="search-phrase"
-          placeholder="Search/Translate Internet"
-        />
-        <select id="fromSelect"></select>
-        <select id="toSelect"></select>
-        <button id="translate-search-btn">Search/Translate It</button>
-      </div>
       <div class="container">
         <div id="entered-uttered-text"></div>
         <div id="translation"></div>
@@ -61,18 +71,24 @@
         <div class="cards"></div>
       </section>
 
-      <br /><br />
+      <br/><br/>
     </main>
     <!-- x-----------------x--------------------x CONTENT x------------------x--------------------x -->
+
 
     <!-- ----------------------------------------- FOOTER ----------------------------------------- -->
     <footer id="main-footer"></footer>
     <span id="last_updated"></span>
     <!-- x-----------------x---------------------x FOOTER x------------------x--------------------x -->
 
+
+    <!-- ----------------------------------------- JavaScript ----------------------------------------- -->
     <script src="js/toggle_menu.js"></script>
-    <script src="js/date_info.js" defer></script>
-    <script src="js/voice_recognition_translate.js" defer></script>
     <script src="js/omdb_api.js" defer></script>
+    <script src="js/date_info.js" defer></script>
+    <script src="js/main.js" type="module"></script>
+    <script src="js/voice_recognition_translate.js" defer></script>
+    <!-- x-----------------x---------------------x JavaScript x----------------x----------------------x -->
+
   </body>
 </html>

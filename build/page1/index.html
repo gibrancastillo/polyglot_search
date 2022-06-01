@@ -4,25 +4,20 @@
     <meta charset="UTF-8" />
     <meta name="author" content="WDD 330 - Team 2" />
     <meta name="description" content="Multilingual Search Website" />
-    <link rel="icon" type="image/x-icon" href="../../favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="../favicon.ico" />
     <!-- Tells smartphones to provide their correct width & stops the font from enlarging when a smartphone is turned sideways -->
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
     />
+    <title>Multilingual Search</title>
 
     <!-- ----------------------------------------- STYLE SHEETS ----------------------------------------- -->
     <link rel="stylesheet" href="../css/normalize.css" />
     <link rel="stylesheet" href="../css/main.css" />
     <link rel="stylesheet" href="../css/small.css" />
-    <!-- smartphone-default -->
     <link rel="stylesheet" href="../css/medium.css" />
-    <!-- enhance-tablet -->
-    <!-- <link rel="stylesheet" href="../css/large.css"> -->
-    <!-- enhance-desktop -->
     <!-- x-------------------x-------------------x STYLE SHEETS x-------------------x-------------------x -->
-
-    <title>Multilingual Search</title>
   </head>
 
   <body>
@@ -30,74 +25,123 @@
     <header>
       <div id="site-info">
         <section>
-          <h1 id="site-title">Voice Recognition</h1>
-          <br />
+          <h1 id="site-title">
+            <span class="blink_me">
+              <span class="span1">Voice Recognition</span>
+              <span class="span2">Reconocimiento de voz</span>
+              <span class="span3">تشخیص صدا</span>
+              <span class="span4">Reconnaissance vocale</span>
+              <span class="span5">Spracherkennung</span>
+              <span class="span6">语音识别</span>
+            </span> 
+          </h1>
+          <br/>
           <h2 id="site-motto">Multilingual Search</h2>
-          <img
-            id="site-logo"
-            src="../assets/images/cartoons/1.png"
-            alt="Camaleon image site logo"
-          />
+          <div id="site-logo">
+            <img src="../assets/images/cartoons/1.png" alt="Chameleon logo image">
+            <img src="../assets/images/cartoons/2.png" alt="Chameleon logo 2 image">
+            <img src="../assets/images/cartoons/3.png" alt="Chameleon logo 3 image">
+            <img src="../assets/images/cartoons/4.png" alt="Chameleon logo 4 image">
+            <img src="../assets/images/cartoons/5.png" alt="Chameleon logo 5 image">
+            <img src="../assets/images/cartoons/6.png" alt="Chameleon logo 6 image">
+          </div>
         </section>
       </div>
     </header>
     <!-- x-------------------x-------------------x HEADER x-------------------x-------------------x -->
+
 
     <!-- -------------------------------------- NAVIGATION --------------------------------------- -->
     <nav>
       <!-- <button id="hamburger-btn">🛵</button> -->
       <ul class="navigation">
         <li><a class="ham" href="#">&#9776;</a></li>
-        <li><a href="../index.html">Home</a></li>
-        <li><a class="active" href="index.html">Page 1</a></li>
-        <li><a href="../page2/index.html">Page 2</a></li>
+        <li><a href="../index.html">Search List</a></li>
+        <li><a class="active" href="../page1/index.html">Search Details</a></li>
+        <li><a href="../page2/index.html">App Video</a></li>
       </ul>
     </nav>
     <!-- x------------------x-----------------x NAVIGATION x------------------x------------------x -->
 
+
     <!-- ---------------------------------------- CONTENT ----------------------------------------- -->
     <main>
-      <h1>Page 1</h1>
-      <h2>Pending</h2>
-      <!-- Pending!! -->
+      <h1>Describe</h1>
+      <fieldset>
+        <div class="container-form">
+          <div class="sub-container-form1">
+            <div class="banner-css"></div>
+          </div>
+          <div class="sub-container-form2">
+            <legend>Search & Translate</legend>
+            <label class="top">
+              <input type="text" id="search-phrase" placeholder="Search/Translate Internet" required/>
+            </label>
+            <label class="top">
+              <select id="fromSelect"></select>
+            </label>
+            <label class="top">
+              <select id="toSelect"></select>
+            </label>
+          </div>
+        </div>
+      </fieldset>
+      <button id="translate-search-btn">Search and Translate</button>
+
+      <div class="container">
+        <div id="entered-uttered-text"></div>
+        <div id="translation"></div>
+      </div>
+      <section>
+        <div class="cards"></div>
+      </section>
+
+      <br/><br/>
     </main>
     <!-- x-----------------x--------------------x CONTENT x------------------x--------------------x -->
+
 
     <!-- ----------------------------------------- FOOTER ----------------------------------------- -->
     <footer>
       <p>
-        &copy; 2022 - TEAM 2 - BYU -
+        &copy; 2022 - BYU Idaho - WDD 330 ::: Team 2 - 
         <a href="https://www.byui.edu/online" target="_blank">
-          <strong>BYU Online Learning</strong></a
-        >
+          <strong>BYU Idaho Online Learning</strong>
+        </a>
       </p>
-      <a class="footer-image1" href="https://www.facebook.com/" target="_blank"
-        ><img
+      <a class="footer-image1" href="https://www.facebook.com/" target="_blank">
+        <img
           class="separate"
           src="../assets/images/marketing/facebook_icon1.png"
-          alt="Facebook image social media"
-          style="width: 60px; height: 60px"
-      /></a>
-      <a class="footer-image2" href="https://twitter.com/" target="_blank"
-        ><img
+          alt="Facebook social media image"
+          style="width: 60px; height: 60px"/>
+      </a>
+      <a class="footer-image2" href="https://twitter.com/" target="_blank">
+        <img
           class="separate"
           src="../assets/images/marketing/1_twitter_icon.png"
-          alt="Twiter image social media"
-          style="width: 60px; height: 60px"
-      /></a>
-      <a class="footer-image3" href="https://www.pinterest.com/" target="_blank"
-        ><img
+          alt="Twiter social media image"
+          style="width: 60px; height: 60px"/>
+      </a>
+      <a class="footer-image3" href="https://www.pinterest.com/" target="_blank">
+        <img
           class="separate"
           src="../assets/images/marketing/pinterest_icon.png"
-          alt="Printerest image social media"
-          style="width: 60px; height: 60px"
-      /></a>
+          alt="Printerest social media image"
+          style="width: 60px; height: 60px"/>
+        </a>
     </footer>
+    <span id="last_updated"></span>
     <!-- x-----------------x---------------------x FOOTER x------------------x--------------------x -->
 
-    <span id="last_updated"></span>
 
+    <!-- ----------------------------------------- JavaScript ----------------------------------------- -->
     <script src="../js/toggle_menu.js"></script>
+    <script src="../js/omdb_api.js" defer></script>
     <script src="../js/date_info.js" defer></script>
+    <!-- <script src="../js/main.js" type="module"></script> -->
+    <script src="../js/voice_recognition_translate.js" defer></script>
+    <!-- x-----------------x---------------------x JavaScript x----------------x----------------------x -->
+
   </body>
 </html>
