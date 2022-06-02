@@ -1,16 +1,49 @@
 document.querySelector("#translate-search-btn").addEventListener("click", () => {
+  let key = "";
   let omdbRequestUrl = "";
   const omdbSearch = document.querySelector("#search-phrase").value;
   
   if(location.pathname == "/index.html" || location.pathname == "/" || 
      location.pathname == "/polyglot_search/src/"  || location.pathname == "/polyglot_search/src/index.html" ||
      location.pathname == "/polyglot_search/build/"  || location.pathname == "/polyglot_search/build/index.html") {
+    key = "movies-list";
     omdbRequestUrl = "https://www.omdbapi.com/?apikey=7f7fde0a&s=" + omdbSearch;
   } else {
+    key = "movies-details";
     omdbRequestUrl = "https://www.omdbapi.com/?apikey=7f7fde0a&t=" + omdbSearch;
   }
+
+  let isInLocalStorage = false;
+
+  let searchLaterContents = getLocalStorage(key);
+  if (searchLaterContents) {
+    for(let i = 0; i < searchLaterContents.length; i++) {
+      if(searchLaterContents[i].Response == "False") {
+        // do not check local storage
+      } else {
+        let contents = searchLaterContents[i].Search;
+        if(contents === undefined) {
+          if(searchLaterContents[i].Title.includes(omdbSearch)) {
+            isInLocalStorage = true;
+            loadMovie(searchLaterContents[i]);
+            break;
+          }
+        } else {
+          contents.some((movie) => {
+            if(movie.Title.includes(omdbSearch)) {
+              isInLocalStorage = true;
+              loadMovies(searchLaterContents[i]);
+              return true;
+            }
+          });
+        }
+        if(isInLocalStorage) { break; }
+      }
+    }
+  }
   
-  fetch(omdbRequestUrl)
+  if(!isInLocalStorage) {
+    fetch(omdbRequestUrl)
     .then((response) => {
       const contentType = response.headers.get("content-type");
       if (!contentType || !contentType.includes("application/json")) {
@@ -27,36 +60,36 @@ document.querySelector("#translate-search-btn").addEventListener("click", () => 
          location.pathname == "/polyglot_search/build/"  || location.pathname == "/polyglot_search/build/index.html") {
         createBanner();
         loadMovies(jsonObject);
-        
       } else {
         createBanner();
         loadMovie(jsonObject);
       }
+
+      addToSearchLater(key, jsonObject);
     })
     .catch((error) => console.error(error));
+  }
 });
 
-// document.querySelector("#search-detail").addEventListener("click", () => {
-//   const queryString = window.location.search;
-//   const urlParams = new URLSearchParams(queryString);
-//   let omdbRequestUrl = "https://www.omdbapi.com/?apikey=7f7fde0a&t=" + urlParams.get("detailsUrl");
-  
-//   fetch(omdbRequestUrl)
-//     .then((response) => {
-//       const contentType = response.headers.get("content-type");
-//       if (!contentType || !contentType.includes("application/json")) {
-//         throw new TypeError("Oops, we haven't got JSON!");
-//       }
-//       return response.json();
-//     })
-//     .then((jsonObject) => {
-//       /* process your data further */
-//       console.table(jsonObject); // temporary checking for valid response and data parsing
-//       createBanner();
-//       loadMovie(jsonObject);
-//     })
-//     .catch((error) => console.error(error));
-// });
+function addToSearchLater(key, data) {
+  let searchLaterContents = getLocalStorage(key);
+  //check to see if there was anything there
+  if (!searchLaterContents) {
+    searchLaterContents = [];
+  }
+  // then add the current movie(s) to the list
+  searchLaterContents.push(data);
+  setLocalStorage(key, searchLaterContents);
+}
+
+// retrieve data from localstorage
+function getLocalStorage(key) {
+  return JSON.parse(localStorage.getItem(key));
+}
+// save data to local storage
+function setLocalStorage(key, data) {
+  localStorage.setItem(key, JSON.stringify(data));
+}
 
 function loadMovies(jsonObject) {
   if(jsonObject.Response == "False"){
@@ -74,8 +107,7 @@ function loadMovies(jsonObject) {
       //<a href=""><section>...</section></a>
       // Anchored
       let anchored = document.createElement("a");
-      anchored.id = movies[i].imdbID; //"search-detail" + [i];
-      anchored.href = "page1/index.html?detailsUrl=https://www.omdbapi.com/?apikey=7f7fde0a&t=" + movies[i].Title;
+      anchored.href = "page1/index.html"
 
       // Create card (section element)
       let card = document.createElement("section");
@@ -113,7 +145,7 @@ function loadMovies(jsonObject) {
       // Add anchored (<a> element) to class "cards" div element
       document.querySelector(".cards").appendChild(anchored);
     }
-    }
+  }
 }
 
 function createBanner(){
@@ -155,7 +187,7 @@ function loadMovie(movie) {
     document.querySelector(".card").appendChild(card);
   } else {
     let anchored = document.createElement("a");
-    anchored.href = "page1/index.html"
+    anchored.href = "page2/index.html"
     
     // Create card (section element)
     let card = document.createElement("section");
