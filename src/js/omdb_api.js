@@ -15,11 +15,11 @@ document
     ) {
       key = "movies-list";
       omdbRequestUrl =
-        "https://www.omdbapi.com/?apikey=7f7fde0a&s=" + omdbSearch;
+        "https://www.omdbapi.com/?apikey=c214de2e&s=" + omdbSearch;
     } else {
       key = "movies-details";
       omdbRequestUrl =
-        "https://www.omdbapi.com/?apikey=7f7fde0a&t=" + omdbSearch;
+        "https://www.omdbapi.com/?apikey=c214de2e&t=" + omdbSearch;
     }
 
     let isInLocalStorage = false;
