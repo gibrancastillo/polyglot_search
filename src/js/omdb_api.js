@@ -144,8 +144,7 @@ function textBaner(){
 </svg>`;
 }
 
-function loadMovie(jsonObject){
-  const movie = jsonObject;
+function loadMovie(movie) {
   if(movie.Response == "False") {
     let card = document.createElement("section");
 
@@ -153,7 +152,7 @@ function loadMovie(jsonObject){
     let h2 = document.createElement("h2");
     h2.textContent = "Sorry..! Movie not found!";
     card.appendChild(h2);
-    document.querySelector(".cards").appendChild(card);
+    document.querySelector(".card").appendChild(card);
   } else {
     let anchored = document.createElement("a");
     anchored.href = "page1/index.html"
@@ -215,7 +214,7 @@ function loadMovie(jsonObject){
       //anchored.appendChild(card)
 
       // Add anchored (<a> element) to class "cards" div element
-      document.querySelector(".cards").appendChild(anchored);
+      document.querySelector(".card").appendChild(anchored);
     }
   }
 }
