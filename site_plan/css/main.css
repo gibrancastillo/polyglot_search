@@ -111,12 +111,11 @@ nav a:visited {
 }
 
 /*Body CSS*/
-body{
-  background: #081C15;
+body {
+  background: #d8f3dc;
 }
 main {
-  background: #081C15;
-  opacity: 0.5;
+  background: #d8f3dc;
   padding: 0 20%;
 }
 .image-blur {
@@ -226,7 +225,7 @@ footer p a {
 }
 
 section:hover {
-  background-color: #0e0d0d;
+  background-color: #c3f8c1;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
     rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
     rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
