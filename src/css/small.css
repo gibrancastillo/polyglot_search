@@ -82,6 +82,11 @@
     font-size: clamp(1rem, 2vmin, 1.5rem);
   }
 
+  video {
+    width: 400px;
+    height: 250px;
+  }
+
   .cards {
     grid-template-columns: 1fr;
   }

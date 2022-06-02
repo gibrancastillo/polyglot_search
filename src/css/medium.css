@@ -1,12 +1,19 @@
 /* Tablet */
 @media only screen and (min-width: 650px) and (max-width: 1000px) {
-  .cards {
-    grid-template-columns: 1fr 1fr;
-  }
   main {
     padding: 0 10%;
   }
+
   main label.top input {
     max-width: 89%;
+  }
+
+  video {
+    width: 550px;
+    height: 400px;
+  }
+
+  .cards {
+    grid-template-columns: 1fr 1fr;
   }
 }
